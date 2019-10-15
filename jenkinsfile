@@ -2,11 +2,7 @@ pipline{
 	agent any
 	stages{
 		stage('Test'){
-			parallel "No1":{
-				sh 'cat test.robot'
-				sh 'robot -d Result test.robot'
-			},
-			"No2":{
+			step{
 				sh 'cat test.robot'
 				sh 'robot -d Result test.robot'
 			}
