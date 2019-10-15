@@ -1,1 +1,22 @@
 
+pipeline{
+    agent any
+    stages{
+       stage('Test'){
+        parallel "No1": {        
+            sh 'cat test.robot'
+            sh 'robot -d Result test.robot'
+        },
+        "No2": {        
+            sh 'cat test.robot'
+            sh 'robot -d Result test.robot'
+        }
+    }
+}
+    post {
+        always {
+    // One or more steps need to be included within each condition's block.
+             robot 'Result'
+         }
+    }
+}
