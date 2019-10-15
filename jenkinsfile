@@ -2,7 +2,7 @@ pipline{
 	agent any
 	stages{
 		stage('Test'){
-			step{
+			steps{
 				sh 'cat test.robot'
 				sh 'robot -d Result test.robot'
 			}
