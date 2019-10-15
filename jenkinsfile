@@ -1,14 +1,14 @@
-pipline{
+pipeline {
 	agent any
-	stages{
-		stage('Test'){
-			steps{
+	stages {
+		stage('Test') {
+			steps {
 				sh 'cat test.robot'
 				sh 'robot -d Result test.robot'
 			}
 		}
 	}
-		post {
+	post {
 		always {
 			robot 'Result'
 		}
