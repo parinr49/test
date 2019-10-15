@@ -1,13 +1,8 @@
-
 pipeline{
     agent any
     stages{
-       stage('Test'){
-        parallel "No1": {        
-            sh 'cat test.robot'
-            sh 'robot -d Result test.robot'
-        },
-        "No2": {        
+       stage('Test') {
+        steps {        
             sh 'cat test.robot'
             sh 'robot -d Result test.robot'
         }
