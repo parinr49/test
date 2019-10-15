@@ -1,1 +1,20 @@
-
+pipline{
+    agent any
+    stages {
+          stage('Test'){
+              parallel "No 1":{
+                  sh 'cat test.robot'
+                  sh 'robot -d Result test.robot'
+              },
+              "No 2":{
+                  sh 'cat test.robot'
+                  sh 'robot -d Result test.robot'
+              }
+           }
+    }
+    post {
+        always {
+            robot 'Result'
+        }
+    }
+}
