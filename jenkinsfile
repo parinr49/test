@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    stage {
+    stages {
         stage('test'){
         steps {
             sh 'cat test.robot'
@@ -9,7 +9,7 @@ pipeline {
     }
 
 }
-    port {
+    post {
         always {
             robot 'Result'
         }
