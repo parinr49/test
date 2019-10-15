@@ -1,1 +1,17 @@
+pipeline {
+    agent any
+    stage {
+        stage('test'){
+        steps {
+            sh 'cat test.robot'
+            sh 'robot -d Result test.robot'
+        }
+    }
 
+}
+    port {
+        always {
+            robot 'Result'
+        }
+    }
+}
